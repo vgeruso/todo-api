@@ -10,12 +10,6 @@ export class UpdateTaskDto extends PartialType(CreateTaskDto) {
   title?: string;
 
   @ApiProperty({
-    description: 'Task description',
-    example: 'Clean badroom because it is dirty',
-  })
-  description?: string;
-
-  @ApiProperty({
     description: 'Task is finished',
     example: 'false',
   })
