@@ -27,6 +27,11 @@ export class TaskController {
     return await this.taskService.findAll();
   }
 
+  @Get(':id')
+  async findById(@Param('id') id: string) {
+    return await this.taskService.findOne(id);
+  }
+
   @Put('update')
   async update(@Body() updateTaskDto: UpdateTaskDto) {
     return await this.taskService.update(updateTaskDto);

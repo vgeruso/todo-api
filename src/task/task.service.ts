@@ -27,7 +27,11 @@ export class TaskService {
 
   async findAll(): Promise<Task[]> {
     try {
-      const tasks: any[] = await this.prisma.task.findMany();
+      const tasks: any[] = await this.prisma.task.findMany({
+        orderBy: {
+          finished: 'asc',
+        },
+      });
 
       if (tasks.length <= 0) throw new NotFoundException('no tasks found');
 
@@ -42,7 +46,7 @@ export class TaskService {
     }
   }
 
-  private async findOne(id: string): Promise<Task> {
+  async findOne(id: string): Promise<Task> {
     try {
       const task: any = await this.prisma.task.findFirst({
         where: { taskId: id },
