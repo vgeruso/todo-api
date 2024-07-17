@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { UpdateTaskDto } from './dto/update-task.dto';
 
-import PrismaService from 'src/database/prisma.service';
+import PrismaService from '../database/prisma.service';
 import { Task } from './entities/task.entity';
 
 @Injectable()
